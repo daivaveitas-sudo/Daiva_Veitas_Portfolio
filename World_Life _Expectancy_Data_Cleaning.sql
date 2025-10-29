@@ -5,10 +5,6 @@ SELECT *
 FROM world_life_expectancy;
 
 
-# Step 1 - Import data twice and save one as 'raw data'
-
-
-
 # Step 2 - Look for duplicates
 #		Every country should have only one year, Afghanistan 2016  , Afghanistan 2015 
 
