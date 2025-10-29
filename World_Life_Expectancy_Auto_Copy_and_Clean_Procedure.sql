@@ -1,5 +1,5 @@
 
-
+#Create procedure that copies and cleans data
 
 
 
@@ -10,7 +10,7 @@ CREATE PROCEDURE Copy_and_clean_data()
 BEGIN
 
 # Make copy of table WITH Timestamp and no indexes
-# First,  create table
+# 1.  Create table.
 CREATE TABLE IF NOT EXISTS `ushouseholdincome_cleaned` (
   `row_id` int DEFAULT NULL,
   `id` int DEFAULT NULL,
@@ -31,12 +31,12 @@ CREATE TABLE IF NOT EXISTS `ushouseholdincome_cleaned` (
   `Time_Stamp` TIMESTAMP DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
-# Second, insert data with TIMESSTAMP 
+# 2.  Insert data with TIMESSTAMP 
 	INSERT INTO ushouseholdincome_cleaned
     SELECT *, CURRENT_TIMESTAMP
     FROM auto_data_clean_project.ushouseholdincome;
 
-
+# 3. Cleaning data.
 -- Remove Duplicates
 DELETE FROM ushouseholdincome_cleaned 
 WHERE 
